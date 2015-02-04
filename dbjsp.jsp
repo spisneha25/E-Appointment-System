@@ -25,7 +25,7 @@
 		<BR />
 <%
 Class.forName("com.mysql.jdbc.Driver"); 
-java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/patient","root","sneha2511"); 
+java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/patient","root","passwd"); 
 Statement st= con.createStatement(); 
 String id=request.getParameter("uid");
 String pwd=request.getParameter("pwd");
