@@ -51,7 +51,7 @@
 		</TR>
 		<%
 			Class.forName("com.mysql.jdbc.Driver"); 
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/patient","root","sneha2511"); 
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/patient","root","passwd"); 
 			Statement st= con.createStatement(); 
 			String doc=request.getParameter("doc");
 			ResultSet rs=st.executeQuery("SELECT * FROM DOCTOR WHERE D_NAME= '" + doc + "'");
