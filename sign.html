@@ -1,0 +1,246 @@
+<html>
+
+<head>	
+<title>
+		E - HEALTHCARE SYSTEM
+	</title>
+	<link rel="stylesheet" href="m1.css" />
+<script type="text/javascript">
+<!--
+		function fn(str)
+		{
+			switch(str)
+			{
+				case 1:
+					if(form.fname.value=="")
+					{
+                        document.getElementById("p1").innerHTML="First Name Field must not be Empty";
+					}
+					break;
+				case 2:
+					if(form.lname.value=="")
+					{
+                        document.getElementById("p2").innerHTML="Last Name Field must not be Empty";
+					}
+					break;
+				case 3:
+					if((form.cno.value.length<8 || form.cno.value.length>8) && (form.cno.value.length>10 || form.cno.value.length<10) )
+					{
+                        document.getElementById("p3").innerHTML="Contact no. must be 8-10 digits";
+					}
+					else
+					{
+						var m=form.cno.value,flag=0;
+						for(var i=0;i<m.length;i++)
+                      	{
+                        	if(m[i]>='0' && m[i]<='9')
+                         	 	flag=flag|1;
+						} 
+						if(flag!=1)
+						{
+							document.getElementById("p3").innerHTML="Contact no. is not valid";
+						}
+					}
+		
+					break;
+				case 4:
+					if(form.mail.value=="")
+					{
+                        document.getElementById("p4").innerHTML="Email Field must not be Empty";
+					}
+					break;
+				case 5:
+					if(form.pass.value.length<8||form.pass.value.length>16)
+					{
+                        document.getElementById("p5").innerHTML="Password must be 8-16 characters long";
+					}
+					else
+					{
+                        var x=form.pass.value,flag=0;
+                        for(var i=0;i<x.length;i++)
+                        {
+                        	if(x[i]>='0' && x[i]<='9')
+                                flag=flag|1;
+                            else if( (x[i]>='a' && x[i]<='z') || (x[i]>='A' && x[i]<='Z') )
+                                flag=flag|2;
+                            else
+                                flag=flag|4;
+                        }
+                        if(flag!=7)
+                        {
+                            var a="";
+                            if((flag&1)==0)
+                                    a=a+"Password must contain a number\n";
+                            if((flag&2)==0)
+                                    a=a+"Password must contain a character\n";
+                            if((flag&4)==0)
+                                    a=a+"Password must contain a special character\n";
+                            document.getElementById("p5").innerHTML=a;
+                        }
+					}
+					break;
+				case 6:
+					if(form.pass.value!=form.cpass.value)
+					{
+                        document.getElementById("p6").innerHTML="Passwords Must Match";
+					}
+					break;
+		
+			}
+		}
+		function validate()
+        {       
+			var flg=1;
+                if(form.fname.value=="")
+                {
+                        flg=0;
+                }
+		
+                
+                if(form.lname.value=="")
+                {
+                        flg=0;
+                }
+				
+				if((form.cno.value.length<8 || form.cno.value.length>8) && (form.cno.value.length>10 || form.cno.value.length<10) )
+				{
+                       flg=0;
+              	}
+				
+				else
+				{
+						var m=form.cno.value,flag=0;
+						for(var i=0;i<m.length;i++)
+                      	{
+                        	if(m[i]>='0' && m[i]<='9')
+                         	 	flag=flag|1;
+						} 
+						if(flag!=1)
+						{
+							flg=0;
+						}
+				}
+		
+                if(form.mail.value=="")
+                {
+                        flg=0;
+				}
+
+                	
+                if(form.pass.value.length<8||form.pass.value.length>16)
+                {
+                        flg=0;
+                }
+                else
+                {
+                        var x=form.pass.value,flag=0;
+                        for(var i=0;i<x.length;i++)
+                        {
+                        	if(x[i]>='0' && x[i]<='9')
+                                flag=flag|1;
+                            else if( (x[i]>='a' && x[i]<='z') || (x[i]>='A' && x[i]<='Z') )
+                                flag=flag|2;
+                            else
+                                flag=flag|4;
+                        }
+                        if(flag!=7)
+                        {
+                            var a="";
+                            if((flag&1)==0)
+                                    a=a+"Password must contain a number\n";
+                            if((flag&2)==0)
+                                    a=a+"Password must contain a character\n";
+                            if((flag&4)==0)
+                                    a=a+"Password must contain a special character\n";
+                            flg=0;
+                        }
+                }
+
+                if(form.pass.value!=form.cpass.value)
+                {
+                       flg=0;
+                }
+				if(flg==0)
+				{
+					window.alert("Fill the form correctly please");
+					window.event.returnValue = false;
+				}
+        }
+    // -->
+</script>
+
+</head>
+
+<body>
+<div id="MAIN">
+		<h1>E-HEALTHCARE SYSTEM</h1>
+		<nav id="MENU">
+				<ul>
+					<li><a href="home.html">HOME</a></li>
+					<li><a href="pat.html">PATIENT</a></li>
+					<li><a href="doc.html">DOCTOR</a></li>
+					<li><a href="pha.html">PHARMACIST</a></li>
+					<li><a href="lab.html">LABORATORY TECHNICIAN</a></li>
+				</ul>
+		</nav>
+		
+		<img src="d.jpg" id="LOGO" />
+		<BR />
+<form name="form" action="http://localhost:8080/examples/jsp/jsp2/mine/submit.jsp" method="post" onsubmit="validate()">
+
+<table width="300">	
+
+<tr>
+	<td><p>First Name</p></td>
+	<td ><input type="text" name="fname" onblur="fn(1)"> </input></td>
+	<p id="p1" style="font:bold 14.5px Tahoma;color:white;position:absolute;left:810px;top:245px;width:400px;"></p>
+</tr>
+<tr>
+	<td><p>Last Name</p></td>
+	<td> <input type="text" name="lname" onblur="fn(2)"> </input></td>
+	<p id="p2" style="font:bold 14.5px Tahoma;color:white;position:absolute;left:810px;top:280px;width:400px;"></p>
+</tr>
+<tr>
+	<td ><p>Contact No. </p></td>
+	<td > <input type="text" size="10" maxlength="10" name="cno" onblur="fn(3)"> </input> </td>
+	<p id="p3" style="font:bold 14.5px Tahoma;color:white;position:absolute;left:810px;top:310px;width:400px;"></p>
+</tr>
+<tr>
+	<td><p>E-mail </p></td>
+	<td > <input type="text" name="mail" onblur="fn(4)"> </input></td>
+	<p id="p4" style="font:bold 14.5px Tahoma;color:white;position:absolute;left:810px;top:340px;width:400px;"></p>
+</tr>
+<tr>
+	<td ><p> Password </p></td>
+	<td> <input type="password" name="pass" onblur="fn(5)" > </input></td>
+	<p id="p5" style="font:bold 14.5px Tahoma;color:white;position:absolute;left:810px;top:375px;width:600px;"></p>
+</tr>
+<tr>
+	<td ><p> Confirm Password </p></td>
+	<td> <input type="password" name="cpass" onblur="fn(6)"> </input></td>
+	<p id="p6" style="font:bold 14.5px Tahoma;color:white;position:absolute;left:810px;top:410px;width:400px;"></p>
+</tr>
+<tr>
+	<td ><p> Age </p></td>
+	<td> <input type="number" name="age" maxlength="3"> </input></td>
+</tr>
+<tr>
+	<td ><p> Sex </p></td>
+	<td> <p>Male: </p></td>
+	<td><input type="radio" name="sex" value="M"> </input></td>
+</tr>
+</tr>
+	<td></td>
+	<td> <p>Female: </p></td>
+	<td><input type="radio" name="sex" value="F"> </input></td>
+</tr>
+<br>
+<tr>
+	<td><input type="Submit" value="SUBMIT"></input></td>
+</tr>
+
+</table>
+</form>
+</body>
+</html>
+			
